@@ -185,8 +185,34 @@ public class OptionMenu {
 		System.out.println("\nRedirecting to login.............");
 		file.addToMap(cst_no, pin);
 		file.userAccountFile();
+//		try {
+//			BufferedWriter userAccounts = new BufferedWriter(new FileWriter("userAccounts.txt"));
+//			//make a loop that stores info each time a user makes an account
+//			userAccounts.write("Here are the accounts in storage.\n");
+//				userAccounts.write();
+//				userAccounts.write(pin + "\n");
+//			userAccounts.close();
+//			//if the map already contains the key and value, then don't save it...
+////                userAccounts.write(String.valueOf(user.getCustomerNumber()));
+//		} catch (IOException E) {
+//			E.printStackTrace();
+//		}
 		getLogin();
 	}
+
+//	public void storeCustomerNumber(){
+//		try {
+//			BufferedWriter userAccounts = new BufferedWriter(new FileWriter("userAccounts.txt"));
+//			//make a loop that stores info each time a user makes an account
+//			userAccounts.write("Here are the accounts in storage.\n");
+//			userAccounts.write("Customer number: " +menuInput.nextInt());
+//			userAccounts.close();
+//			//if the map already contains the key and value, then don't save it...
+////                userAccounts.write(String.valueOf(user.getCustomerNumber()));
+//		} catch (IOException E) {
+//			E.printStackTrace();
+//		}
+//	}
 
 
 	//main menu
