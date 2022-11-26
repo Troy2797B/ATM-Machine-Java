@@ -1,3 +1,5 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.HashMap;
@@ -10,6 +12,8 @@ public class OptionMenu {
 	Scanner menuInput = new Scanner(System.in);
 	DecimalFormat moneyFormat = new DecimalFormat("'$'###,##0.00");
 	HashMap<Integer, Account> data = new HashMap<Integer, Account>();
+	Files file = new Files();
+
 
 	public void getLogin() throws IOException {
 		boolean end = false;
@@ -26,7 +30,8 @@ public class OptionMenu {
 					Map.Entry pair = (Map.Entry) it.next();
 					Account acc = (Account) pair.getValue();
 					if (data.containsKey(customerNumber) && pinNumber == acc.getPinNumber()) {
-						getAccountType(acc);
+						acc.accountBalances();
+//						getAccountType(acc);
 						end = true;
 						break;
 					}
@@ -178,9 +183,13 @@ public class OptionMenu {
 		data.put(cst_no, new Account(cst_no, pin));
 		System.out.println("\nYour new account has been successfuly registered!");
 		System.out.println("\nRedirecting to login.............");
+		file.addToMap(cst_no, pin);
+		file.userAccountFile();
 		getLogin();
 	}
 
+
+	//main menu
 	public void mainMenu() throws IOException {
 		data.put(952141, new Account(952141, 191904, 1000, 5000));
 		data.put(123, new Account(123, 123, 20000, 50000));

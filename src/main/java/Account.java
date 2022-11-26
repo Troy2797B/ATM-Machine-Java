@@ -1,3 +1,4 @@
+import java.io.FileWriter;
 import java.text.DecimalFormat;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -51,6 +52,24 @@ public class Account {
 
 	public double getSavingBalance() {
 		return savingBalance;
+	}
+
+	public void accountBalances(){
+		OptionMenu menu = new OptionMenu();
+		Account acc = new Account();
+		System.out.println("\nWhat would you like to do?");
+		System.out.println("1. View account statement");
+		System.out.println("2. Access account");
+		System.out.print("\nChoice: ");
+		int choice = input.nextInt();
+		switch (choice) {
+			case 1 : System.out.println("Checking Account Balance: " + getCheckingBalance()+
+					"\nSavings Account Balance: " + getSavingBalance());
+			break;
+			case 2: menu.getAccountType(acc);
+			break;
+		}
+
 	}
 
 	public double calcCheckingWithdraw(double amount) {
