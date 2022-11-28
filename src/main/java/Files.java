@@ -13,12 +13,13 @@ public class Files {
     public void userAccountFile(){
         try {
             BufferedWriter userAccounts = new BufferedWriter(new FileWriter("userAccounts.txt"));
+//            FileOutputStream outputStream = new FileOutputStream("userAccounts.txt");
             //make a loop that stores info each time a user makes an account
             for (Integer key : mapOfAccounts.keySet()) {
-                userAccounts.write(key.toString() + " ");
+                userAccounts.write("Customer Number: "+ key.toString() + " ");
             }
             for (Integer value : mapOfAccounts.values()){
-                userAccounts.write(value.toString() + "\n");
+                userAccounts.write("Pin Number: " + value.toString() + "\n");
             }
             userAccounts.close();
             //if the map already contains the key and value, then don't save it...
@@ -30,11 +31,11 @@ public class Files {
     public void userAccountFileReader(){
         try {
             BufferedReader read = new BufferedReader(new FileReader("userAccounts.txt"));
-            String s;
-//            while(s = read.readLine())
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
+        String line ="";
+
 
     }
 
